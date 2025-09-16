@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belarus - The Heart of Europe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0f0f23 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.8), transparent);
+        }
+
+        .flag {
+            width: 140px;
+            height: 90px;
+            margin: 0 auto 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .flag-stripe {
+            height: 33.33%;
+        }
+
+        .flag-red { background: linear-gradient(135deg, #CE1126, #a00e1f); }
+        .flag-green { background: linear-gradient(135deg, #006A44, #004f32); }
+        .flag-pattern {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.9) 25%, transparent 25%), 
+                        linear-gradient(-45deg, rgba(255,255,255,0.9) 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.9) 75%), 
+                        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.9) 75%);
+            background-size: 8px 8px;
+            background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #e879c7, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.5), transparent);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(147, 51, 234, 0.3);
+            box-shadow: 0 30px 60px rgba(147, 51, 234, 0.1);
+        }
+
+        .card h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #9333ea, #e879c7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 25px 20px;
+            background: rgba(147, 51, 234, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(147, 51, 234, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e879c7, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .export-list, .info-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .export-item, .info-item {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .export-item:hover, .info-item:hover {
+            padding-left: 10px;
+            background: rgba(147, 51, 234, 0.05);
+            margin: 0 -10px;
+            border-radius: 10px;
+        }
+
+        .export-item:last-child, .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .export-name, .info-label {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .export-percentage {
+            background: linear-gradient(135deg, #9333ea, #e879c7);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+        }
+
+        .info-label {
+            display: inline-block;
+            width: 150px;
+            font-weight: 600;
+        }
+
+        .info-value {
+            color: rgba(255, 255, 255, 0.8);
+            flex: 1;
+            text-align: right;
+        }
+
+        .description {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            padding: 20px;
+            background: rgba(147, 51, 234, 0.05);
+            border-radius: 15px;
+            border-left: 3px solid #9333ea;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .card {
+                padding: 25px 20px;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-label {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .export-item, .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .info-value {
+                text-align: left;
+            }
+        }
+
+        .glow {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(147, 51, 234, 0.6), 0 0 40px rgba(232, 121, 199, 0.3);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #9333ea, #e879c7);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #7c2d12, #9333ea);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <div class="flag glow floating">
+                <div class="flag-stripe flag-red"></div>
+                <div class="flag-stripe flag-green"></div>
+                <div class="flag-stripe flag-red"></div>
+                <div class="flag-pattern"></div>
+            </div>
+            <h1>Belarus</h1>
+            <p class="subtitle">Republic of Belarus - Рэспубліка Беларусь</p>
+        </header>
+
+        <div class="content-grid">
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">🏛️</div>
+                    General Information
+                </h2>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Capital:</span>
+                        <span class="info-value">Minsk</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Population:</span>
+                        <span class="info-value">9.5 million (2024)</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Area:</span>
+                        <span class="info-value">207,600 km²</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Languages:</span>
+                        <span class="info-value">Belarusian, Russian</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Currency:</span>
+                        <span class="info-value">Belarusian Ruble (BYN)</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Government:</span>
+                        <span class="info-value">Presidential Republic</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">President:</span>
+                        <span class="info-value">Alexander Lukashenko</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Independence:</span>
+                        <span class="info-value">August 25, 1991</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">📊</div>
+                    Economic Overview
+                </h2>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">$68.2B</span>
+                        <div class="stat-label">GDP (2023)</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$7,240</span>
+                        <div class="stat-label">GDP per Capita</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5.8%</span>
+                        <div class="stat-label">Unemployment</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">12.9%</span>
+                        <div class="stat-label">Inflation Rate</div>
+                    </div>
+                </div>
+                <p class="description">
+                    Belarus maintains a mixed economy with significant state involvement. Despite facing international sanctions and regional challenges, the country's industrial and agricultural sectors remain resilient foundations of its economic structure.
+                </p>
+            </div>
+
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">🚚</div>
+                    Major Export Products
+                </h2>
+                <ul class="export-list">
+                    <li class="export-item">
+                        <span class="export-name">Petroleum Products</span>
+                        <span class="export-percentage">25.8%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Potash Fertilizers</span>
+                        <span class="export-percentage">18.2%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Machinery & Equipment</span>
+                        <span class="export-percentage">12.4%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Dairy Products</span>
+                        <span class="export-percentage">8.7%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Chemicals</span>
+                        <span class="export-percentage">7.3%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Wood Products</span>
+                        <span class="export-percentage">5.9%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Textiles</span>
+                        <span class="export-percentage">4.2%</span>
+                    </li>
+                    <li class="export-item">
+                        <span class="export-name">Steel Products</span>
+                        <span class="export-percentage">3.8%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">🏭</div>
+                    Key Industries
+                </h2>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Oil Refining:</span>
+                        <span class="info-value">Major refining capacity</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Agriculture:</span>
+                        <span class="info-value">Dairy, potatoes, flax</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Manufacturing:</span>
+                        <span class="info-value">Tractors, heavy machinery</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Mining:</span>
+                        <span class="info-value">Potash, salt, phosphorites</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">IT Services:</span>
+                        <span class="info-value">Software development</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Forestry:</span>
+                        <span class="info-value">Timber, paper production</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">🌍</div>
+                    Geography & Climate
+                </h2>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Location:</span>
+                        <span class="info-value">Eastern Europe, landlocked</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Borders:</span>
+                        <span class="info-value">Russia, Ukraine, Poland, Lithuania, Latvia</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Terrain:</span>
+                        <span class="info-value">Flat plains and low hills</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Highest Point:</span>
+                        <span class="info-value">Dzyarzhynskaya Hara (346m)</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Climate:</span>
+                        <span class="info-value">Continental climate</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Forest Coverage:</span>
+                        <span class="info-value">40% of land area</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Major Rivers:</span>
+                        <span class="info-value">Dnieper, Pripyat, Neman</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card fade-in">
+                <h2>
+                    <div class="icon">📚</div>
+                    Culture & Society
+                </h2>
+                <ul class="info-list">
+                    <li class="info-item">
+                        <span class="info-label">Ethnic Groups:</span>
+                        <span class="info-value">84% Belarusian, 8% Russian</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Religion:</span>
+                        <span class="info-value">Orthodox Christianity</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Literacy Rate:</span>
+                        <span class="info-value">99.7%</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">Life Expectancy:</span>
+                        <span class="info-value">75.2 years</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">UNESCO Sites:</span>
+                        <span class="info-value">Mir Castle, Nesvizh Palace</span>
+                    </li>
+                    <li class="info-item">
+                        <span class="info-label">National Symbol:</span>
+                        <span class="info-value">European Bison</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Enhanced hover effects
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Animate statistics on load
+            const animateStats = () => {
+                const statValues = document.querySelectorAll('.stat-value');
+                statValues.forEach((stat, index) => {
+                    setTimeout(() => {
+                        stat.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            stat.style.transform = 'scale(1)';
+                        }, 200);
+                    }, index * 100);
+                });
+            };
+
+            setTimeout(animateStats, 1000);
+
+            // Parallax effect for background elements
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const background = document.body;
+                background.style.transform = `translateY(${scrolled * 0.1}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
